@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load bootstrap3 %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+
+      {% include 'index.html' %}
+
+    </div>
+    <div class="col-sm-8 col-sm-offset-3">
+    <div class="panel panel-default">
+      <div class="panel-heading text-center ">
+        <h4 class='bg-info'>Create a new post</h4>
+      </div>
+    <div class="panel-body">
+      <form class="form-control" action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <div class="text-center">
+            <input class="btn btn-success" type="submit" name="" value="submit">
+        </div>
+      </form>
+    </div>
+    </div>
+
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}
