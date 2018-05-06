@@ -17,3 +17,9 @@ class HomeBlog(ListView):
         context['category'] = Category.objects.all()
         context['setting'] = self.queryset
         return context
+
+class TestPage(TemplateView):
+    template_name = 'home.html'
+
+class ThanksPage(TemplateView):
+    template_name = 'thanks.html'

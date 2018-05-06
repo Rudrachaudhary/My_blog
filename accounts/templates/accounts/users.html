@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      {% include 'index.html' %}
+    </div>
+    <div class="col-sm-8 col-sm-offset-3">
+    <div class="panel panel-default">
+      <div class="panel-heading text-center ">
+        <h4 class='bg-info'>Users</h4>
+      </div>
+      <div class="panel panel-default">
+
+        <div class="panel-body">
+        <table class="table table-hover">
+          <thead>
+            <th>
+              Username
+            </th>
+            <th>
+             Email
+            </th>
+            <th>
+              Staff Status
+            </th>
+            <th>
+              Super User
+            </th>
+            <th>
+              Active
+            </th>
+          </thead>
+          <tbody>
+
+            {% for article in object_list %}
+
+            <tr>
+              <td>
+                {{article.username}}
+              </td>
+              <td>
+                  {{article.email}}
+              </td>
+              <td>
+                {{article.is_staff}}
+              </td>
+              <td>
+                {{article.is_superuser}}
+              </td>
+              <td>
+                {{article.is_active}}
+              </td>
+            </tr>
+
+            {% endfor %}
+          </tbody>
+        </table>
+        <table class="table table-hover">
+          <tbody>
+            {% if not object_list %}
+            <tr>
+              <p class="text-center">there are no any users.</p>
+            </tr>
+            {% endif %}
+          </tbody>
+        </table>
+      </div>
+
+
+      </div>
+
+
+    </div>
+    </div>
+
+
+
+  </div>
+</div>
+{% endblock %}

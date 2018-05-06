@@ -16,8 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
-from django.urls import path
-from blog.views import Home,HomeBlog
+from django.urls import path,include
+from blog.views import Home,HomeBlog,TestPage,ThanksPage
 from posts.views import (CreatePost,
                          ViewPost,
                          UpdatePost,
@@ -36,6 +36,11 @@ from settings.views import (UpdateSetting,
                             DeleteSetting)
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #accounts
+    path('accounts/',include('accounts.urls',namespace='accounts')),
+    path('accounts/',include('django.contrib.auth.urls')),
+    path('test/',TestPage.as_view(), name='test'),
+    path('thanks/',ThanksPage.as_view(), name='thanks'),
     #posts
     path('post/create/',CreatePost.as_view(), name='create_post'),
     path('view/posts',ViewPost.as_view(), name='view_post'),
