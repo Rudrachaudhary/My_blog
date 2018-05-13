@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path,include
-from blog.views import Home,HomeBlog,TestPage,ThanksPage
+from blog.views import Home,HomeBlog,TestPage,ThanksPage,PostDetail
 from posts.views import (CreatePost,
                          ViewPost,
                          UpdatePost,
@@ -64,6 +64,7 @@ urlpatterns = [
     #HOME
     path('',Home.as_view(),name='home'),
     path('home/blog',HomeBlog.as_view(),name='home_blog'),
+    path('post/detail',PostDetail.as_view(),name='post_detail'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -10,6 +10,9 @@ class Post(models.Model):
     category = models.ForeignKey(Category,on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tag)
     timestamps = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.category
     #def get_absolute_url(self):
         #return reverse('post-detail', kwargs={'pk': self.pk})
     def save(self,*args,**kwargs):

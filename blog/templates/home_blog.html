@@ -106,10 +106,11 @@
 
                             <div class="post__content-info">
 
-                                    <h2 class="post__title entry-title ">
-                                        <a href="15_blog_details.html">The Important & Standard Post Format</a>
+                                    {% for article in post %}
+                                    <h2 class="post__title entry-title text-center">
+                                        <a href="{% url 'post_detail' %}">{{article.title}}</a>
                                     </h2>
-
+                                    {% endfor %}
                                     <div class="post-additional-info">
 
                                         <span class="post__date">
@@ -117,14 +118,18 @@
                                             <i class="seoicon-clock"></i>
 
                                             <time class="published" datetime="2016-04-17 12:00:00">
-                                                April 17, 2016
+                                              {% for article in post %}
+                                              {{article.timestamps}}
+                                              {% endfor %}
                                             </time>
 
                                         </span>
 
                                         <span class="category">
                                             <i class="seoicon-tags"></i>
-                                            <a href="#">Video</a>
+                                            {% for article in post %}
+                                            <a href="#">{{article.category}}</a>
+                                            {% endfor %}
                                         </span>
 
                                         <span class="post__comments">
